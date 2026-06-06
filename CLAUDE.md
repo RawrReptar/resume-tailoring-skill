@@ -1,43 +1,71 @@
 # CLAUDE.md - Project Instructions
 
-## Available Skills
+## Skills Index
 
-This repository contains Claude Code skills that should be consulted and used when fulfilling user requests.
+Before fulfilling any user request, scan this index to identify which skill(s) apply. Read the matching SKILL.md file(s) before proceeding. Multiple skills can be combined for complex requests.
 
-### Resume Tailoring Skill
+### Quick Lookup Table
 
+| Keyword / Intent | Skill | Location |
+|---|---|---|
+| resume, tailor, job description, JD | Resume Tailoring | `skills/resume-tailoring/SKILL.md` |
+| batch, multiple jobs, multi-job | Resume Tailoring (multi-job) | `multi-job-workflow.md` |
+| cover letter, application materials | Career Artifacts | `skills/career-artifacts/SKILL.md` |
+| interview, mock interview, STAR | Interview Prep | `skills/interview-prep/SKILL.md` |
+| code review, review diff, check code | Code Review | `skills/code-review/SKILL.md` |
+| security, vulnerability, credentials | Security Check | `skills/security-check/SKILL.md` |
+| prompt, context engineering, improve prompt | Context Engineering | `skills/context-engineering/SKILL.md` |
+
+### Skill Details
+
+#### 1. Resume Tailoring
 **Location:** `skills/resume-tailoring/SKILL.md`
+**Triggers:** resume, tailor, job description, JD, career document, job application, apply
+**Use when:** Creating or tailoring resumes for specific job descriptions, batch processing multiple applications, reviewing/improving existing resumes, researching companies/roles, discovering undocumented experiences.
+**Phases:** Library Build → Research → Template → Discovery & Assembly → Generation
+**Multi-job mode:** Read `multi-job-workflow.md` for batch processing 3-5 similar jobs.
+**Supporting files:**
+- `research-prompts.md` — JD parsing, company research, role benchmarking templates
+- `matching-strategies.md` — Content matching algorithms, confidence scoring, reframing
+- `branching-questions.md` — Conversational patterns for experience discovery
+- `docs/schemas/batch-state-schema.md` — Batch processing data structures
+- `docs/schemas/job-schema.md` — Job object lifecycle and schema
 
-**When to use:** Any request involving resumes, job applications, career documents, or job search activities. This includes:
-- Creating or tailoring a resume for a specific job description
-- Batch processing multiple job applications
-- Reviewing or improving an existing resume
-- Researching companies or roles for job applications
-- Discovering and surfacing undocumented work experiences
-- Generating cover letters or interview prep materials
+#### 2. Career Artifacts
+**Location:** `skills/career-artifacts/SKILL.md`
+**Triggers:** cover letter, application materials, job application workflow, career documents, job tracker
+**Use when:** Generating cover letters, application materials, risk assessments, or managing application tracking. For full resume generation, defer to Resume Tailoring skill.
 
-**How to use:** Read `skills/resume-tailoring/SKILL.md` for the full workflow. The skill has 5 phases:
-1. **Library Build** - Scan existing resumes to build a content library
-2. **Research** - Deep company/role research and success profile creation
-3. **Template** - Structure and title optimization
-4. **Discovery & Assembly** - Surface undocumented experiences, match content with confidence scoring
-5. **Generation** - Produce MD, DOCX, and interview prep reports
+#### 3. Interview Prep
+**Location:** `skills/interview-prep/SKILL.md`
+**Triggers:** interview prep, mock interview, interview questions, STAR stories, company research for interview
+**Use when:** Preparing for interviews — company research packages, likely questions, STAR story mapping, mock interview practice, post-interview reflection.
 
-**Multi-job mode:** For batch processing multiple jobs, also read `multi-job-workflow.md`.
+#### 4. Code Review
+**Location:** `skills/code-review/SKILL.md`
+**Triggers:** code review, review changes, review diff, check my code, review PR
+**Use when:** Reviewing code changes for bugs, security issues, performance problems, and style consistency. Outputs severity-rated findings table.
 
-### Supporting References
+#### 5. Security Check
+**Location:** `skills/security-check/SKILL.md`
+**Triggers:** security check, security review, vulnerability scan, credential check, audit
+**Use when:** Auditing code for security vulnerabilities — OWASP Top 10, credential exposure, dependency CVEs, prompt injection risks.
 
-When executing resume-related tasks, also consult these files for detailed strategies:
-- `research-prompts.md` - Templates for JD parsing, company research, and role benchmarking
-- `matching-strategies.md` - Content matching algorithms, confidence scoring, and reframing strategies
-- `branching-questions.md` - Conversational patterns for experience discovery interviews
-- `docs/schemas/batch-state-schema.md` - Data structures for multi-job batch processing
-- `docs/schemas/job-schema.md` - Job object lifecycle and schema
+#### 6. Context Engineering
+**Location:** `skills/context-engineering/SKILL.md`
+**Triggers:** improve prompt, better prompt, context engineering, optimize prompt, prompt design
+**Use when:** Designing or improving prompts, structuring context for AI tasks, diagnosing context failures (burst, poisoning, noise, conflict).
+
+## Reference Documentation
+
+- `docs/reference/ai-on-mac-bible-v4.md` — Comprehensive AI on Mac reference (33 chapters). Consult for deep dives on: hardware optimization (Ch 1), cost economics (Ch 2), context engineering (Ch 3), local inference (Ch 4), security (Ch 13), MCP ecosystem (Ch 15), career development (Ch 20).
 
 ## Core Principles
 
-When working on any task in this repo, follow these principles from the skill's design philosophy:
+All skills follow these principles:
 
 - **Truth-Preserving Optimization:** NEVER fabricate experience. Intelligently reframe and emphasize real experiences. Be transparent about gaps.
 - **Holistic Person Focus:** Surface undocumented experiences. Value volunteer work, side projects, and diverse backgrounds.
 - **User Control:** Provide checkpoints at key decisions. Present options, not mandates. Allow adjustments.
+- **Specificity Over Vagueness:** Concrete targets, not abstract advice. Show, don't tell.
+- **Security First:** Never commit secrets. Validate at system boundaries. Check OWASP Top 10.
